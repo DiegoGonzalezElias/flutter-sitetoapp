@@ -36,6 +36,9 @@ dependencies:
   firebase_core:
   firebase_messaging: ^14.2.6
   webview_flutter: ^3.0.4
+  pull_to_refresh: ^2.0.0
+  swipedetector: ^1.2.0
+  flutter_swipe_detector: ^2.0.0
 
 dev_dependencies:
   flutter_test:
