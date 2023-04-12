@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/services.dart';
 import 'package:webtoapp/home.dart';
 
 //
@@ -27,6 +28,11 @@ main() async {
       print('Message also contained a notification: ${message.notification}');
     }
   });
+  //force vertical orientation only
+  /* SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]); */
+  //force horizontal orientation only
+  //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   runApp(const MyApp());
 }
 
