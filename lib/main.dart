@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/services.dart';
+import 'package:wakelock/wakelock.dart';
 import 'package:webtoapp/home.dart';
 
 //
 main() async {
+  //From Here: ENSURE KEEP SCREEN ON
+  WidgetsFlutterBinding.ensureInitialized();
+  Wakelock.enable();
+  //Until Here: ENSURE KEEP SCREEN ON
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseMessaging messaging = FirebaseMessaging.instance;

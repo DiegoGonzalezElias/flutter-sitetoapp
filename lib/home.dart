@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fullscreen/fullscreen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class NewWebView extends StatefulWidget {
@@ -14,6 +15,25 @@ class NewWebView extends StatefulWidget {
 class _NewWebViewState extends State<NewWebView> {
   late WebViewController webViewController;
   bool _isLoading = false;
+
+  //Since Here: This is to force fullScreen On
+  @override
+  void initState() {
+    super.initState();
+
+    FullScreen.enterFullScreen(FullScreenMode.EMERSIVE_STICKY);
+    // Enable virtual display.
+    //changed AndroidWebView() to SurfaceAndroidWebView()
+    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    FullScreen.exitFullScreen();
+  }
+  //Until here: This is to force fullScreen On
 
   @override
   Widget build(BuildContext context) {

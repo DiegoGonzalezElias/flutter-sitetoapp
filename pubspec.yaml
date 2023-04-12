@@ -39,6 +39,8 @@ dependencies:
   pull_to_refresh: ^2.0.0
   swipedetector: ^1.2.0
   flutter_swipe_detector: ^2.0.0
+  fullscreen: ^1.0.3
+  wakelock: ^0.6.2
 
 dev_dependencies:
   flutter_test:
