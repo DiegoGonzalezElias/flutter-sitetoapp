@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:wakelock/wakelock.dart';
 import 'package:webtoapp/home.dart';
 
@@ -38,7 +39,10 @@ main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]); */
   //force horizontal orientation only
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+  // Initialize splash screen
   runApp(const MyApp());
+  //This is for the Splash Screen to be removed when the app loads
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
