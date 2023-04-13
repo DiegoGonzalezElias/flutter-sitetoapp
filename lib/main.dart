@@ -35,8 +35,8 @@ main() async {
     }
   });
   //force vertical orientation only
-  /* SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]); */
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   //force horizontal orientation only
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   // Initialize splash screen
