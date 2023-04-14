@@ -41,6 +41,7 @@ dependencies:
   fullscreen: ^1.0.3
   wakelock: ^0.6.2
   flutter_native_splash: ^2.1.6
+  onesignal_flutter: ^3.5.1
 
 #Run commands to generate splash Screen
 #1) flutter clean

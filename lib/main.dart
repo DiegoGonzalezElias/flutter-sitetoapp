@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:wakelock/wakelock.dart';
 import 'package:webtoapp/home.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 //
 main() async {
@@ -43,6 +44,18 @@ main() async {
   runApp(const MyApp());
   //This is for the Splash Screen to be removed when the app loads
   FlutterNativeSplash.remove();
+
+  //oneSignal notification
+  //Remove this method to stop OneSignal Debugging
+  /* OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
+
+  OneSignal.shared.setAppId("6d00a540-d7b2-4bad-b9b8-dc7e3cad7f80");
+
+// The promptForPushNotificationsWithUserResponse function will show the iOS or Android push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission
+  OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
+    print("Accepted permission: $accepted");
+  }); */
+  //unil here: oneSignal notification
 }
 
 class MyApp extends StatelessWidget {
