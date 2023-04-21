@@ -23,9 +23,9 @@ class _NewWebViewState extends State<NewWebView> {
   void initState() {
     super.initState();
     //FROM HERE: ADMOB
-    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+    /* AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
     WidgetsBinding.instance!
-        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
+        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager)); */
     //UNTIL HERE: ADMOB
     FullScreen.enterFullScreen(FullScreenMode.EMERSIVE_STICKY);
     // Enable virtual display.

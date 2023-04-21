@@ -48,7 +48,7 @@ main() async {
   //force horizontal orientation only
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   //From here admob
-  MobileAds.instance.initialize();
+  //MobileAds.instance.initialize();
   //Until here: admob
   runApp(const MyApp());
   //This is for the Splash Screen to be removed when the app loads
