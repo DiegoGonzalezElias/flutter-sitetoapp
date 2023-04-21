@@ -43,7 +43,7 @@ class _NewWebViewState extends State<NewWebView> {
           WebView(
             gestureNavigationEnabled: true,
             //here goes the URL
-            initialUrl: 'https://flutter.dev',
+            initialUrl: 'http://fisabio.san.gva.es',
             javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (WebViewController webViewController) {
               this.webViewController = webViewController;
