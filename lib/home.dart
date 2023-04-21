@@ -83,12 +83,12 @@ class _NewWebViewState extends State<NewWebView> {
                 _isLoading = false;
               });
               //additional css
-              /* String css =
+              String css =
                   '.logo{ display: none !important; }'; // Reemplazar con el CSS deseado
               String script = "var style = document.createElement('style');"
                   "style.innerHTML = '$css';"
                   "document.head.appendChild(style);";
-              webViewController.runJavascript(script); */
+              webViewController.runJavascript(script);
               //until here additional css
             },
             //comment to here to disable pull to refresh
