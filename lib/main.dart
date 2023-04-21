@@ -6,14 +6,16 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:wakelock/wakelock.dart';
 import 'package:webtoapp/home.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 //
 main() async {
-  //From Here: ENSURE KEEP SCREEN ON
   WidgetsFlutterBinding.ensureInitialized();
+
+  //From Here: ENSURE KEEP SCREEN ON
   Wakelock.enable();
   //Until Here: ENSURE KEEP SCREEN ON
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   NotificationSettings settings = await messaging.requestPermission(
@@ -40,7 +42,9 @@ main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   //force horizontal orientation only
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-  // Initialize splash screen
+  //From here admob
+  MobileAds.instance.initialize();
+  //Until here: admob
   runApp(const MyApp());
   //This is for the Splash Screen to be removed when the app loads
   FlutterNativeSplash.remove();

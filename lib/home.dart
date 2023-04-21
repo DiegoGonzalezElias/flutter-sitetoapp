@@ -4,6 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fullscreen/fullscreen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'app_open_ad_manager.dart';
+import 'app_lifecycle_reactor.dart';
 
 class NewWebView extends StatefulWidget {
   const NewWebView({Key? key}) : super(key: key);
@@ -20,7 +22,11 @@ class _NewWebViewState extends State<NewWebView> {
   @override
   void initState() {
     super.initState();
-
+    //FROM HERE: ADMOB
+    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+    WidgetsBinding.instance!
+        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
+    //UNTIL HERE: ADMOB
     FullScreen.enterFullScreen(FullScreenMode.EMERSIVE_STICKY);
     // Enable virtual display.
     //changed AndroidWebView() to SurfaceAndroidWebView()
