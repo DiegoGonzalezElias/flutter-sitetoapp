@@ -50,7 +50,7 @@ main() async {
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
 
   //From here admob
-  //MobileAds.instance.initialize();
+  MobileAds.instance.initialize();
   //Until here: admob
 
   runApp(const MyApp());
