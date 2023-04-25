@@ -43,20 +43,37 @@ class _NewWebViewState extends State<NewWebView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        children: [
-          WebView(
-            gestureNavigationEnabled: true,
-            //here goes the URL
-            initialUrl: 'https://flutter.dev',
-            javascriptMode: JavascriptMode.unrestricted,
-            onWebViewCreated: (WebViewController webViewController) {
-              this.webViewController = webViewController;
-            },
-            zoomEnabled: false,
-            //comment from here to disable pull to refresh
-            /*  gestureRecognizers: Set()
+    return WillPopScope(
+        onWillPop: () async {
+          if (await webViewController.canGoBack()) {
+            webViewController.goBack();
+            return false;
+          } else {
+            return true;
+          }
+        },
+        child: SafeArea(
+          child: Stack(
+            children: [
+              WebView(
+                gestureNavigationEnabled: true,
+                //here goes the URL
+                initialUrl: 'https://flutter.dev',
+                javascriptMode: JavascriptMode.unrestricted,
+                onWebViewCreated: (WebViewController webViewController) {
+                  this.webViewController = webViewController;
+                },
+                navigationDelegate: (NavigationRequest request) {
+                  //se agrega esta función para verificar la URL de navegación
+                  if (request.url.contains("flutter.dev")) {
+                    return NavigationDecision.navigate;
+                  } else {
+                    return NavigationDecision.prevent;
+                  }
+                },
+                zoomEnabled: false,
+                //comment from here to disable pull to refresh
+                /*  gestureRecognizers: Set()
               ..add(
                 Factory<VerticalDragGestureRecognizer>(
                   () => VerticalDragGestureRecognizer()
@@ -73,39 +90,39 @@ class _NewWebViewState extends State<NewWebView> {
                     },
                 ),
               ), */
-            //comment until here to disable pull to refresh
-            onPageStarted: (String url) {
-              /* setState(() {
+                //comment until here to disable pull to refresh
+                onPageStarted: (String url) {
+                  /* setState(() {
                 _isLoading = true;
               }); */
-            },
-            onPageFinished: (String url) {
-              setState(() {
-                _isLoading = false;
-              });
-              //additional css
-              /*  String css =
+                },
+                onPageFinished: (String url) {
+                  setState(() {
+                    _isLoading = false;
+                  });
+                  //additional css
+                  /*  String css =
                   '.logo{ display: none !important; }'; // Reemplazar con el CSS deseado
               String script = "var style = document.createElement('style');"
                   "style.innerHTML = '$css';"
                   "document.head.appendChild(style);";
               webViewController.runJavascript(script); */
-              //until here additional css
-            },
-          ),
-          //comment from here to disable pull to refresh
-          if (_isLoading)
-            Positioned(
-              top: 15,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: CircularProgressIndicator(),
+                  //until here additional css
+                },
               ),
-            ),
-          //comment to here to disable pull to refresh
-        ],
-      ),
-    );
+              //comment from here to disable pull to refresh
+              if (_isLoading)
+                Positioned(
+                  top: 15,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              //comment to here to disable pull to refresh
+            ],
+          ),
+        ));
   }
 }
