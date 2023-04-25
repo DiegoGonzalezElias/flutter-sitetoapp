@@ -15,11 +15,11 @@ main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   //From Here: ENSURE KEEP SCREEN ON
-  Wakelock.enable();
+  //Wakelock.enable();
   //Until Here: ENSURE KEEP SCREEN ON
-  //WidgetsFlutterBinding.ensureInitialized();
+
   //to avoid ios notification
-  if (Platform.isAndroid) {
+  /* if (Platform.isAndroid) {
     await Firebase.initializeApp();
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     NotificationSettings settings = await messaging.requestPermission(
@@ -41,15 +41,18 @@ main() async {
         print('Message also contained a notification: ${message.notification}');
       }
     });
-  }
+  } */
+
   //force vertical orientation only
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  /* SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]); */
   //force horizontal orientation only
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+
   //From here admob
-  MobileAds.instance.initialize();
+  //MobileAds.instance.initialize();
   //Until here: admob
+
   runApp(const MyApp());
   //This is for the Splash Screen to be removed when the app loads
   FlutterNativeSplash.remove();
@@ -74,7 +77,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      //title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //

@@ -23,9 +23,9 @@ class _NewWebViewState extends State<NewWebView> {
   void initState() {
     super.initState();
     //FROM HERE: ADMOB
-    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+    /*   AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
     WidgetsBinding.instance!
-        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
+        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager)); */
     //UNTIL HERE: ADMOB
     FullScreen.enterFullScreen(FullScreenMode.EMERSIVE_STICKY);
     // Enable virtual display.
@@ -56,7 +56,7 @@ class _NewWebViewState extends State<NewWebView> {
             },
             zoomEnabled: false,
             //comment from here to disable pull to refresh
-            gestureRecognizers: Set()
+            /*  gestureRecognizers: Set()
               ..add(
                 Factory<VerticalDragGestureRecognizer>(
                   () => VerticalDragGestureRecognizer()
@@ -72,7 +72,8 @@ class _NewWebViewState extends State<NewWebView> {
                       });
                     },
                 ),
-              ),
+              ), */
+            //comment until here to disable pull to refresh
             onPageStarted: (String url) {
               /* setState(() {
                 _isLoading = true;
@@ -83,15 +84,14 @@ class _NewWebViewState extends State<NewWebView> {
                 _isLoading = false;
               });
               //additional css
-              String css =
+              /*  String css =
                   '.logo{ display: none !important; }'; // Reemplazar con el CSS deseado
               String script = "var style = document.createElement('style');"
                   "style.innerHTML = '$css';"
                   "document.head.appendChild(style);";
-              webViewController.runJavascript(script);
+              webViewController.runJavascript(script); */
               //until here additional css
             },
-            //comment to here to disable pull to refresh
           ),
           //comment from here to disable pull to refresh
           if (_isLoading)
